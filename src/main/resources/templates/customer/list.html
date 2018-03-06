@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <h4>Customers</h4>
+
+    <a class="btn btn-primary" th:href="@{'/customer/new'}">New</a>
+
+    <div class="table-responsive pt-3">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Post Code</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="customer : ${customers}" role="row">
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.address.address}"></td>
+                <td th:text="${customer.address.postCode}"></td>
+                <td th:text="${customer.address.city}"></td>
+                <td th:text="${customer.address.state}"></td>
+                <td>
+                    <div class="nav d-flex justify-content-between">
+                        <a th:href="@{'/customer/' + ${customer.id} + '/show'}"><i class="fa fa-eye"></i></a>
+                        <a th:href="@{'/customer/' + ${customer.id} + '/update'}"><i
+                                class="fa fa-edit"></i></a>
+                        <a th:href="@{'/customer/' + ${customer.id} + '/delete'}" data-toggle="confirmation"><i
+                                class="fa fa-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

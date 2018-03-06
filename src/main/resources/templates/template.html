@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel='stylesheet' href='/webjars/bootstrap/4.0.0-1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/webjars/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+    <title>Logistics</title>
+    <style type="text/css">
+        .header-border {
+            border-bottom: 1px solid #e5e5e5;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container bg-white" role="main">
+    <header class="py-3 header-border">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+                <h3 class="text-muted" style="font-size: 2.25rem;">Logistics</h3>
+            </div>
+        </div>
+    </header>
+    <div class="nav-scroller header-border">
+        <nav class="nav d-flex">
+            <a class="p-2 text-muted" href="/">
+                Home
+            </a>
+            <a class="p-2 text-muted" href="/customer">
+                Customers
+            </a>
+        </nav>
+    </div>
+    <div id="page-content" class="pr-3 pl-3 pt-3" layout:fragment="content">
+    </div>
+</div>
+
+<script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.0.0-1/js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript">
+    $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle=confirmation]',
+        // other options
+    });
+</script>
+</body>
+</html>

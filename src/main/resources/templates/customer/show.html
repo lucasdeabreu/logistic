@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <h4>Customers</h4>
+
+    <div class="pl-3">
+        <div class="row font-weight-bold">
+            ID
+        </div>
+        <div class="row">
+            <p th:text="${customer.id}"></p>
+        </div>
+
+        <div class="row font-weight-bold">
+            Name
+        </div>
+        <div class="row">
+            <p th:text="${customer.name}"></p>
+        </div>
+
+        <div class="row font-weight-bold">
+            Address
+        </div>
+        <div class="row">
+            <p th:text="${customer.address.address}"></p>
+        </div>
+
+        <div class="row font-weight-bold">
+            Post Code
+        </div>
+        <div class="row">
+            <p th:text="${customer.address.postCode}"></p>
+        </div>
+
+        <div class="row font-weight-bold">
+            City
+        </div>
+        <div class="row">
+            <p th:text="${customer.address.city}"></p>
+        </div>
+
+        <div class="row font-weight-bold">
+            State
+        </div>
+        <div class="row">
+            <p th:text="${customer.address.state}"></p>
+        </div>
+    </div>
+
+    <a class="btn btn-primary" th:href="@{'/customer/' + ${customer.id} + '/update'}">Update</a>
+    <a class="btn btn-secondary" th:href="@{'/customer/'}">Back</a>
+    <a class="btn btn-danger" th:href="@{'/customer/' + ${customer.id} + '/delete'}">Delete</a>
+</div>
+</body>
+</html>

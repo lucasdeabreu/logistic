@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <h4>Customers</h4>
+
+    <form method="post" th:action="@{'/customer'}" th:object="${customer}">
+        <div class="form-group">
+            <label>ID</label>
+            <input class="form-control" th:field="*{id}" readonly>
+        </div>
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" th:field="*{name}">
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input class="form-control" th:field="*{address.address}">
+        </div>
+        <div class="form-group">
+            <label>Post Code</label>
+            <input class="form-control" th:field="*{address.postCode}">
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input class="form-control" th:field="*{address.city}">
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            <input class="form-control" th:field="*{address.state}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a class="btn btn-secondary" th:href="@{'/customer/'}" th:if="${customer.id == null}">Cancel</a>
+        <a class="btn btn-secondary" th:href="@{'/customer/' + ${customer.id} + '/show'}" th:if="${customer.id != null}">Cancel</a>
+        <a class="btn btn-danger" th:href="@{'/customer/' + ${customer.id} + '/delete'}" th:if="${customer.id != null}">Delete</a>
+    </form>
+</div>
+</body>
+</html>
